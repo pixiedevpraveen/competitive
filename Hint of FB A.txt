@@ -1,0 +1,54 @@
+Hint of first question (Airplane Travel Restriction)
+
+take input of number of airlines:
+for each air line :
+take 3 input:
+countries,string1,string2
+counter=1
+loop1( condition (i in)-length of string1):
+nexted loop2(condition- i to length of string)
+if (i==j){
+a[i][j]="Y"}
+else{
+if(string2[i]==''Y'' string1[j]=="Y"and counter==1):
+a[i][j]="Y"
+print(a[i][j], end ='''')
+else:
+a[i][j]="N"
+counter-=1
+print(a[i][j],end='''')}
+after completion of loop 2 chng line
+
+// *FACEBOOK HACKERCUP*
+Hint of Second question(Alchemy)
+
+take input for number of stones
+for each stone
+take two input
+n,k
+k=string
+use combinations of 3 consecutive elements
+using itertools in python
+if(two elements are different )
+then
+store 3rd one
+untill you have combinations of 3
+finally if you get single element at last print Y.
+
+
+FACEBOOK HACKERCUP
+Hint of third aquestion(timber)
+
+take input for number of forest sections
+for each forest section
+take three inputs N,p,h
+Create two list
+For every pi-hi
+And pi+hi
+Create pair for every trees of pi and hi
+For two consecutive pairs 
+If one element is common
+Then remove that common element and store start and last element for that pair
+There is no common element then compair that for pi-hi and pi+hi
+If found common element sum=sum+largest value after removal of common element
+Print sum
