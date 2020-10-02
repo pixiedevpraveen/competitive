@@ -1,1 +1,1 @@
-# competitive
+# Some Important Competitive Programming Problems
