@@ -5,33 +5,33 @@ using namespace std;
 class Solution {
 public:
     int lengthofLastWord(string s) {
-    	int pos=0;
-    if(s.empty())
-    	return pos;
-    else if(s.find(' ')==string::npos)
-    	pos = s.length();
-
-    else
-    for(auto i = s.rbegin()+1;i< s.rend();i++)
-    {
-    	if(*i==' '){
-	    	if(s.find("  ")!=string::npos )
-	    		break;
-	    	pos = i-s.rbegin();
-	    	break;
-    	}
-    	
-    }
-
-        return pos;
+    	if(s.length() == 0)
+            return 0;
+ 
+        int ans = 0;
+        int len = s.length();
+     
+        bool f = false;
+        for(int i=len-1; i>=0; i--){
+            char c = s.at(i);
+            if((c>='a' && c<='z') || (c>='A' && c<='Z')){
+                f = true;
+                ans++;
+            }else{
+                if(f)
+                    return ans;
+            }
+        }
+     
+        return ans;
     }
 };
 
 int main()
 {
-	ioStd();
+	// ioStd();
 	Solution S;
-	string s = "a";
+	string s = "a ";
 	// getline( cin, s );
 	int sLast = S.lengthofLastWord(s);
 	cout<< sLast ;

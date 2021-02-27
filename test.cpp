@@ -47,11 +47,15 @@ int Subarr(int a[],int N, int k)
 
 	return found;
 }
+void rem(int a[], int n){
+	for(auto it = a; it != a+n; ++it)
+		*it = 0;
+}
 
 int main()
 {
-	int a [] = {1,2,3,4,5};
-	cout<< Subarr(a,5,9)<< br;
+
+
 	// cout<< zeroSSubarr(a)<< br;
 
 	return 0;

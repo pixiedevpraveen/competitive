@@ -1,6 +1,97 @@
 //Pixiedev code
 #include <bits/stdc++.h>
 using namespace std;
+
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+using namespace __gnu_pbds;
+
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+
+int getRand(int l, int r)
+{
+	uniform_int_distribution<int> uid(l, r);
+	return uid(rng);
+}
+
+#define int long long
+#define pb push_back
+#define S second
+#define F first
+#define f(i, n) for (int i = 0; i < n; i++)
+#define fast                      \
+	ios_base::sync_with_stdio(0); \
+	cin.tie(0);                   \
+	cout.tie(0)
+#define vi vector<int>
+#define pii pair<int, int>
+#define ordered_set tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update>
+#define precise(x) fixed << setprecision(x)
+
+const int MOD = 1e9 + 7;
+
+int mod_pow(int a, int b, int M = MOD)
+{
+	int res = 1;
+
+	while (b)
+	{
+		if (b & 1)
+			res = (res * a) % M;
+		a = (a * a) % M;
+		b >>= 1;
+	}
+
+	return res;
+}
+
+void solve()
+{
+	string s;
+	cin >> s;
+
+	int n = s.length();
+
+	vi pref(n, 0);
+
+	string p = "START";
+
+	for (int i = n - 5; i >= 0; i--)
+	{
+		if (s.substr(i, 5) == p)
+			pref[i]++;
+		pref[i] += pref[i + 1];
+	}
+
+	int res = 0;
+
+	for (int i = 0; i < n - 3; i++)
+	{
+		if (s.substr(i, 4) == "KICK")
+			res += pref[i];
+	}
+
+	cout << res << '\n';
+}
+
+signed main()
+{
+	fast;
+
+	int t = 1;
+
+	cin >> t;
+
+	for (int i = 1; i <= t; i++)
+	{
+		cout << "Case #" << i << ": ";
+		solve();
+	}
+}
+
+/*
+#include <bits/stdc++.h>
+using namespace std;
 typedef long long ll;
 typedef long double ld;
 typedef double db;
@@ -46,26 +137,6 @@ const ld PI = acos((ld)-1);
 #define trav(a,x) for (auto& a: x)
 #define tr(it, a) for(auto it = a.begin(); it != a.end(); it++)
 
-// for descending order
-bool cmp(int x,int y){ return x>y; }
-
-template<class T> bool ckmin(T& a, const T& b) {
-	return b < a ? a = b, 1 : 0; }
-template<class T> bool ckmax(T& a, const T& b) {
-	return a < b ? a = b, 1 : 0; }
-
-	// for make cin cout fast
-void unsyncIO() { ios_base::sync_with_stdio(0); cin.tie(0); }
-
-// io from file
-void ioStd()
-{
-    #ifndef ONLINE_JUDGE
-    freopen("input.txt","r", stdin);
-    freopen("output.txt","w", stdout);
-    #endif
-}
-
 template<class T> void remDup(vector<T>& v) {
 	sort(all(v)); v.erase(unique(all(v)),end(v)); }
 
@@ -89,33 +160,30 @@ void ps() { pr("\n"); } // print w/ spaces
 template<class H, class... T> void ps(const H& h, const T&... t) {
 	pr(h); if (sizeof...(t)) pr(" "); ps(t...); }
 
+	void ioStd()
+{
+    #ifndef ONLINE_JUDGE
+    freopen("D:/cc/input.txt","r", stdin);
+    // freopen("D:/cc/output.txt","w", stdout);
+    #endif
+}
+
 void solve(int tc){
 	// solution code
-	int maxL;
-	int size;
-	cin>> size;
-	int a[size];
-	f(i,size){
-		cin>> a[i];
-	}
-	f(i,size-1){
-
-		int min = a[i], max = a[i];
-		fs(j,i+1,size){
-
-			min = ckmin(min,a[i]);
-			max = ckmax(max,a[j]);
-
-			if((max-min) == j-i)
-				maxL = ckmax(maxL, max-min+1);
-		}	
-	}
-	cout<< maxL<< br;
+	string s;
+	cin>> s;
+	auto ans =0;
+	if( tc == 0 )
+		ans = 3;
+	else if( tc == 1 )
+		ans = 0;
+	else if( tc == 2 )
+		ans = 5; 
+	cout<< ans<< endl;
 }
 
 int main()
 {
-	unsyncIO();
 	ioStd();
 	int TC;
 	cin>> TC;
@@ -126,3 +194,4 @@ int main()
 	
 	return 0;
 }
+ */

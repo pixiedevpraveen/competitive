@@ -17,8 +17,8 @@ bool cmp(int x,int y){ return x>y; }
 void ioStd()
 {
     #ifndef ONLINE_JUDGE
-    freopen("input.txt","r", stdin);
-    freopen("output.txt","w", stdout);
+    freopen("D:/compP/input.txt","r", stdin);
+    freopen("D:/compP/output.txt","w", stdout);
     #endif
 }
 
